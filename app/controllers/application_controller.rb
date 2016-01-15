@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   around_filter :user_time_zone, if: :current_user 
 
+  before_filter :update_sanitized_params, if: :devise_controller?
+
+	def update_sanitized_params
+	  devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:email, :password, :time_zone)}
+	end
+
   private 
   
 		def user_time_zone(&block)
