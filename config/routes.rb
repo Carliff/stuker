@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+
+  get 'auth/:provider/callback', to: 'connections#create'
+  resources :connections, only: [:destroy]
+
   devise_for :users, controller: { registrations: 'registrations'}
   
   get 'pages/home'
