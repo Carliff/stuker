@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   
   get 'auth/:provider/callback', to: 'connections#create'
   resources :connections, only: [:destroy]
-  resources :posts
+  resources :posts do 
+    member do 
+      put :cancel 
+    end
+  end
 
   devise_for :users, controller: {registrations:'registrations'}
   get 'pages/home'
