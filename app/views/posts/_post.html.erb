@@ -3,7 +3,7 @@
 	<div class="panel-heading">
 		<% if post.facebook == true %> <span class="label label-primary"></span> <% end %>
 		<% if post.twitter == true %> <span class="label label-info"></span> <% end %>
-		Scheduled on <%= post.scheduled_at %>
+		Scheduled to post on <%= post.scheduled_at.to_formatted_s(:rfc822) %>
 	</div>
 	<!-- body -->
 	<div class="panel-body">
