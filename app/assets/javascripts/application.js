@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require twitter/bootstrap
-//= require bootstrap-datetimepicker 
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datetimepicker 
 //= require moment
 //= require pickers
 //= require turbolinks
