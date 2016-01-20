@@ -40,12 +40,12 @@ class Post < ActiveRecord::Base
 			config.consumer_key = ENV["TWITTER_KEY"]
 			config.consumer_secret = ENV["TWITTER_SECRET"]
 		end
-		client.delay.update(self.content)
+		client.update(self.content)
 	end
 
 	def to_facebook
 		graph = Koala::Facebook::API.new(self.user.facebook.oauth_token)
-		graph.delay.put_connections("me", "feed", message: self.content)
+		graph.put_connections("me", "feed", message: self.content)
 	end
 
 end
